@@ -3,7 +3,7 @@ FROM debian:bookworm AS fonts
 # Install dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-    unzip tree wget
+    unzip tree wget fontconfig
 
 # Workdir for fonts
 WORKDIR /fonts
