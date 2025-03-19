@@ -41,6 +41,9 @@ RUN unzip /fonts/Pretendard.zip -d /fonts/Pretendard
 ADD https://github.com/orioncactus/pretendard/releases/download/v${PRETENDARD_VERSION}/PretendardJP-${PRETENDARD_VERSION}.zip /fonts/PretendardJP.zip
 RUN unzip PretendardJP.zip -d /fonts/PretendardJP
 
+# Delete the zip files
+RUN rm /fonts/*.zip
+
 # Check the fonts list using tree and make markdown file
 RUN tree /fonts
 
