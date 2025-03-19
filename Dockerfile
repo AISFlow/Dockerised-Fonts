@@ -21,6 +21,18 @@ RUN unzip /fonts/D2Coding.zip -d /fonts/D2Coding
 ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKkr-hinted.zip /fonts/NotoSansCJKkr.zip
 RUN unzip /fonts/NotoSansCJKkr.zip -d /fonts/NotoSansCJKkr
 
+# Download Noto Serif KR fonts
+ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKkr-hinted.zip /fonts/NotoSerifCJKkr.zip
+RUN unzip /fonts/NotoSerifCJKkr.zip -d /fonts/NotoSerifCJKkr
+
+# Download Noto Sans JP fonts
+ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip /fonts/NotoSansCJKjp.zip
+RUN unzip /fonts/NotoSansCJKjp.zip -d /fonts/NotoSansCJKjp
+
+# Download Noto Serif JP fonts
+ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip /fonts/NotoSerifCJKjp.zip
+RUN unzip /fonts/NotoSerifCJKjp.zip -d /fonts/NotoSerifCJKjp
+
 # Download Pretendard fonts
 ADD https://github.com/orioncactus/pretendard/releases/download/v${PRETENDARD_VERSION}/Pretendard-${PRETENDARD_VERSION}.zip /fonts/Pretendard.zip
 RUN unzip /fonts/Pretendard.zip -d /fonts/Pretendard
@@ -28,10 +40,6 @@ RUN unzip /fonts/Pretendard.zip -d /fonts/Pretendard
 # Download Pretendard JP fonts
 ADD https://github.com/orioncactus/pretendard/releases/download/v${PRETENDARD_VERSION}/PretendardJP-${PRETENDARD_VERSION}.zip /fonts/PretendardJP.zip
 RUN unzip PretendardJP.zip -d /fonts/PretendardJP
-
-# Download Noto Serif KR fonts
-ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKkr-hinted.zip /fonts/NotoSerifCJKkr.zip
-RUN unzip /fonts/NotoSerifCJKkr.zip -d /fonts/NotoSerifCJKkr
 
 # Check the fonts list using tree and make markdown file
 RUN tree /fonts
