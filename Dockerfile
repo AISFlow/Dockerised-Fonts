@@ -54,24 +54,9 @@ ARG D2CODING_VERSION=1.3.2
 ARG D2CODING_NERD_VERSION=1.3.2
 ARG D2CODING_DATE=20180524
 ARG PRETENDARD_VERSION=1.3.9
-ARG MECAB_RELEASE=release-0.999
 
 ###############################
-# Install Code-Server
-###############################
-RUN dpkgArch="$(dpkg --print-architecture)" && \
-    case "${dpkgArch}" in \
-        amd64) codeServerUrl="https://github.com/coder/code-server/releases/download/v${CODE_SERVER_VERSION}/code-server-${CODE_SERVER_VERSION}-linux-amd64.tar.gz" ;; \
-        arm64) codeServerUrl="https://github.com/coder/code-server/releases/download/v${CODE_SERVER_VERSION}/code-server-${CODE_SERVER_VERSION}-linux-arm64.tar.gz" ;; \
-        *) echo >&2 "Unsupported architecture: ${dpkgArch}" && exit 1 ;; \
-    esac && \
-    mkdir -p /usr/lib/code-server && \
-    wget --quiet "${codeServerUrl}" -O - | tar -xzvf - -C /usr/lib/code-server --strip-components=1 && \
-    ln -sf /usr/lib/code-server/bin/code-server /usr/bin/code-server && \
-    chmod +x /usr/bin/code-server
-
-###############################
-# Install Fonts & MeCab Korean Support
+# Install Fonts
 ###############################
 RUN set -eux; \
     install_google_font() { \
