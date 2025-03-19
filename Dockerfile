@@ -38,4 +38,4 @@ RUN tree /fonts > /fonts/README.md
 
 FROM debian:bookworm-slim AS final
 
-COPY --from=fonts /fonts /fonts
+COPY --from=fonts --chmod=644 /fonts /fonts
