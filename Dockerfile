@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-    unzip tree wget
+    unzip tree wget jq ca-certificates fontconfig
 
 # Workdir for fonts
 WORKDIR /fonts
@@ -56,9 +56,7 @@ ARG D2CODING_NERD_VERSION=1.3.2
 ARG D2CODING_DATE=20180524
 ARG PRETENDARD_VERSION=1.3.9
 
-###############################
-# Install Fonts
-###############################
+# Install the fonts
 RUN set -eux; \
         install_google_font() { \
         local relative_path="$1"; local font_name="$2"; \
@@ -139,5 +137,5 @@ RUN set -eux; \
 
 FROM debian:bookworm-slim AS final
 
-COPY --from=fonts --chmod=644 /fonts /fonts
+COPY --from=fonts --chmod=644 /fonts /usr/share/fonts/polybag/
 COPY --from=fonts --chmod=644 /usr/share/fonts/truetype/ /usr/share/fonts/truetype/
