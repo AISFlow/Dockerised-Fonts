@@ -34,7 +34,7 @@ ADD https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifCJKkr-hinted.zip
 RUN unzip /fonts/NotoSerifCJKkr.zip -d /fonts/NotoSerifCJKkr
 
 # Check the fonts list using tree and make markdown file
-RUN tree /fonts > /fonts/README.md
+RUN tree /fonts
 
 FROM debian:bookworm-slim AS final
 
