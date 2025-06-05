@@ -96,6 +96,7 @@ RUN set -eux; \
         install_google_font "notosansjp" "NotoSansJP[wght].ttf" && \
         install_google_font "notoserifjp" "NotoSerifJP[wght].ttf" && \
         install_google_font "notoemoji" "NotoEmoji[wght].ttf" && \
+        install_google_font "notocoloremoji" "NotoColorEmoji-Regular.ttf" && \
     \
     # Install Nanum fonts
         install_google_font "nanumbrushscript" "NanumBrushScript-Regular.ttf" && \
