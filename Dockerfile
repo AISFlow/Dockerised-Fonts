@@ -1,4 +1,4 @@
-FROM debian:bookworm AS fonts
+FROM debian:bookworm-20260623 AS fonts
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install dependencies
