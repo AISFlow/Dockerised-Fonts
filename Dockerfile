@@ -1,4 +1,4 @@
-FROM debian:bookworm AS fonts
+FROM debian:trixie AS fonts
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install dependencies
